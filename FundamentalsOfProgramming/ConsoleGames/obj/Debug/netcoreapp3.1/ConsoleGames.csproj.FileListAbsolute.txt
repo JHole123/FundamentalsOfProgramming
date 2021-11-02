@@ -1,0 +1,14 @@
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\bin\Debug\netcoreapp3.1\ConsoleGames.exe
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\bin\Debug\netcoreapp3.1\ConsoleGames.deps.json
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\bin\Debug\netcoreapp3.1\ConsoleGames.runtimeconfig.json
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\bin\Debug\netcoreapp3.1\ConsoleGames.runtimeconfig.dev.json
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\bin\Debug\netcoreapp3.1\ConsoleGames.dll
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\bin\Debug\netcoreapp3.1\ConsoleGames.pdb
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.csprojAssemblyReference.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.csproj.ResolveComReference.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.AssemblyInfoInputs.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.AssemblyInfo.cs
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.csproj.CoreCompileInputs.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.dll
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.pdb
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\ConsoleGames\obj\Debug\netcoreapp3.1\ConsoleGames.genruntimeconfig.cache
