@@ -1,37 +1,57 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleGames
 {
     class Program
     {
-        static char[] CurrentBoard = new char[9] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+        static List<char> CurrentBoard = new List<char>(new char[] {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '});
 
         static void Main()
         {
-            char[] arg = new char[] { 'x', 'x', 'o', 'x', 'x', 'o', 'o', 'o', 'o' };
-            OutputBoard(arg);
-            TakeUserInput('x');
-            Console.Read();
-
+            NewTurn();
         }
 
-        static void OutputBoard(char[] board)
+        static void NewTurn()
+        {
+            TakeUserInput('x');
+            if (CheckVictory(CurrentBoard) == 'x') VictoryEvent('x');
+            TakeUserInput('o');
+            if (CheckVictory(CurrentBoard) == 'o') VictoryEvent('o');
+            NewTurn();
+        }
+
+        static void VictoryEvent(char winner)
+        {
+            Console.Clear();
+            Console.WriteLine($"{winner} has won! Press anything to play another game...");
+            Console.Read();
+            CurrentBoard.Clear();
+            CurrentBoard = new List<char>(new char[] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' });
+            NewTurn();
+        }
+
+        static void OutputBoard(List<char> board)
         {
             string arg = $"{board[0]}|{board[1]}|{board[2]}\n-----\n{board[3]}|{board[4]}|{board[5]}\n-----\n{board[6]}|{board[7]}|{board[8]}\n";
             Console.Write(arg);
         }
 
-        static int TakeUserInput(char UserPiece)
+        static void TakeUserInput(char UserPiece)
         {
-            Console.Clear();
-            OutputBoard(CurrentBoard);
-            Console.Write($"Please enter where you wish to put your piece?\n> ");
             int arg;
-            int.TryParse(Console.ReadLine(), out arg);
-            return arg;
+            do
+            {
+                Console.Clear();
+                OutputBoard(CurrentBoard);
+                Console.Write($"Please enter where you wish to put your {UserPiece}?\n> ");
+                int.TryParse(Console.ReadLine(), out arg);
+            } 
+            while (arg <= 0 && arg >= 10);
+            CurrentBoard[arg - 1] = UserPiece;
         }
 
-        static char CheckVictory(char[] board)
+        static char CheckVictory(List<char> board)
         {
             // Rows
             for (int i = 0; i < 7; i+=3)
