@@ -47,7 +47,7 @@ namespace ConsoleGames
                 Console.Write($"Please enter where you wish to put your {UserPiece}?\n> ");
                 int.TryParse(Console.ReadLine(), out arg);
             } 
-            while (arg <= 0 && arg >= 10);
+            while (arg < 1 || arg > 9);
             CurrentBoard[arg - 1] = UserPiece;
         }
 
