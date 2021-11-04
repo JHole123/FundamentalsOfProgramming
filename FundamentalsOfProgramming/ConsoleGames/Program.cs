@@ -4,7 +4,7 @@ namespace ConsoleGames
 {
     class Program
     {
-        static char[] SelectionBoard = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        static char[] CurrentBoard = new char[9] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
         static void Main()
         {
@@ -12,6 +12,7 @@ namespace ConsoleGames
             OutputBoard(arg);
             TakeUserInput('x');
             Console.Read();
+
         }
 
         static void OutputBoard(char[] board)
@@ -23,7 +24,7 @@ namespace ConsoleGames
         static int TakeUserInput(char UserPiece)
         {
             Console.Clear();
-            OutputBoard(SelectionBoard);
+            OutputBoard(CurrentBoard);
             Console.Write($"Please enter where you wish to put your piece?\n> ");
             int arg;
             int.TryParse(Console.ReadLine(), out arg);
