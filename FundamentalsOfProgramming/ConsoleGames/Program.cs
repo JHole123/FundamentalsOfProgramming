@@ -6,10 +6,19 @@ namespace ConsoleGames
     class Program
     {
         static List<char> CurrentBoard = new List<char>(new char[] {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '});
+        static Robot ai = new Robot();
 
         static void Main()
         {
-            NewTurn();
+            //NewTurn();
+
+            CurrentBoard[3] = 'x';
+            CurrentBoard[2] = 'o';
+            CurrentBoard[4] = 'x';
+            CurrentBoard[5] = 'o';
+            CurrentBoard[6] = 'x';
+            ai.minimax(CurrentBoard);
+            Console.WriteLine(ai.move);
         }
 
         static void NewTurn()
