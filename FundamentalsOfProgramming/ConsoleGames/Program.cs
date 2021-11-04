@@ -51,6 +51,23 @@ namespace ConsoleGames
                     else if (board[i] == 'o') return 'o';
                 }
             }
+
+            // Left to right diagonal
+            if (board[0] == board[4] && board[4] == board[8])
+            {
+                if (board[0] == 'x') return 'x';
+                else if (board[0] == 'o') return 'o';
+            }
+
+            // Right to left diagonal
+            if (board[2] == board[4] && board[4] == board[6])
+            {
+                if (board[0] == 'x') return 'x';
+                else if (board[0] == 'o') return 'o';
+            }
+
+            return ' ';
+
         }
 
     }
