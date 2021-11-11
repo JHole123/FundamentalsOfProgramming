@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ConsoleGames
 {
@@ -10,15 +11,7 @@ namespace ConsoleGames
 
         static void Main()
         {
-            //NewTurn();
-
-            CurrentBoard[3] = 'x';
-            CurrentBoard[2] = 'o';
-            CurrentBoard[4] = 'x';
-            CurrentBoard[5] = 'o';
-            CurrentBoard[6] = 'x';
-            ai.minimax(CurrentBoard);
-            Console.WriteLine(ai.move);
+            NewTurn();
         }
 
         static void NewTurn()
@@ -65,32 +58,41 @@ namespace ConsoleGames
             // Rows
             for (int i = 0; i < 7; i+=3)
             {
-                if (board[i] == board[i+1] && board[i+1] == board[i+2])
+                Debug.WriteLine($"ROW Checking {i}");
+                if (board[i] == board[i + 1] && board[i + 1] == board[i + 2] && board[i+1] != ' ') 
                 {
+                    Debug.WriteLine($"Has found {i} {i + 1} {i + 2} to be equal");
                     if (board[i] == 'x') return 'x';
                     else if (board[i] == 'o') return 'o';
                 }
             }
+
             // Columns
             for (int i = 0; i < 3; i ++)
             {
-                if (board[i] == board[i + 3] && board[i + 3] == board[i + 6])
+                Debug.WriteLine($"COLUMN Checking {i}");
+                if (board[i] == board[i + 3] && board[i + 3] == board[i + 6] && board[i + 3] != ' ')
                 {
+                    Debug.WriteLine($"Has found {i} {i + 3} {i + 6} to be equal");
                     if (board[i] == 'x') return 'x';
                     else if (board[i] == 'o') return 'o';
                 }
             }
 
             // Left to right diagonal
-            if (board[0] == board[4] && board[4] == board[8])
+            Debug.WriteLine($"Checking LTR DIAGONAL");
+            if (board[0] == board[4] && board[4] == board[8] && board[4] != ' ')
             {
+                Debug.WriteLine($"Has found {0} {4} {8} to be equal");
                 if (board[0] == 'x') return 'x';
                 else if (board[0] == 'o') return 'o';
             }
 
             // Right to left diagonal
-            if (board[2] == board[4] && board[4] == board[6])
+            Debug.WriteLine($"Checking LTR DIAGONAL");
+            if (board[2] == board[4] && board[4] == board[6] && board[2] != ' ')
             {
+                Debug.WriteLine($"Has found {2} {4} {6} to be equal");
                 if (board[0] == 'x') return 'x';
                 else if (board[0] == 'o') return 'o';
             }
