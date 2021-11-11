@@ -6,8 +6,9 @@ namespace ConsoleGames
 {
     class Program
     {
-        static List<char> CurrentBoard = new List<char>(new char[] {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '});
+        static Board CurrentBoard = new Board();
         static Robot ai = new Robot();
+        static UserInterface input = new UserInterface();
 
         static void Main()
         {
@@ -16,41 +17,23 @@ namespace ConsoleGames
 
         static void NewGame()
         {
-            string userInput;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("Do you wish to play against another 'human' or a 'robot'?");
-                userInput = Console.ReadLine().ToLower().Trim();
-            } while (!(userInput == "human" || userInput == "robot"));
-            switch (userInput)
-            {
-                case "human":
-                    HumanTurn();
-                    break;
-                case "robot":
-                    RobotTurn();
-                    break;
-            }
+            string userInput = input.TakeInput("Do you wish to play against another 'human' or a 'robot'?", x => x == "human" || x == "robot");
+            if (userInput == "human") HumanTurn();
+            else RobotTurn();
         }
 
         static void RobotTurn()
         {
-            TakeUserInput('x');
-            if (CheckVictory(CurrentBoard) == 'x') VictoryEvent('x');
-            ai.minimax(CurrentBoard);
-            CurrentBoard[ai.move - 1] = 'o';
-            if (CheckVictory(CurrentBoard) == 'o') VictoryEvent('o');
+            input.TakeUserInput(ref CurrentBoard, 'x');
+            if (CurrentBoard.Winner == 'x') VictoryEvent('x');
             RobotTurn();
         }
 
-        static void HumanTurn()
+        static void HumanTurn(char userPiece = 'x')
         {
-            TakeUserInput('x');
-            if (CheckVictory(CurrentBoard) == 'x') VictoryEvent('x');
-            TakeUserInput('o');
-            if (CheckVictory(CurrentBoard) == 'o') VictoryEvent('o');
-            HumanTurn();
+            input.TakeUserInput(ref CurrentBoard, 'x');
+            if (CurrentBoard.Winner == userPiece) VictoryEvent(userPiece);
+            HumanTurn(userPiece == 'x'? 'o':'x');
         }
 
         static void VictoryEvent(char winner)
@@ -58,77 +41,8 @@ namespace ConsoleGames
             Console.Clear();
             Console.WriteLine($"{winner} has won! Press anything to play another game...");
             Console.Read();
-            CurrentBoard.Clear();
-            CurrentBoard = new List<char>(new char[] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' });
+            CurrentBoard.SetBoard();
             NewGame();
-        }
-
-        static void OutputBoard(List<char> board)
-        {
-            string arg = $"{board[0]}|{board[1]}|{board[2]}\n-----\n{board[3]}|{board[4]}|{board[5]}\n-----\n{board[6]}|{board[7]}|{board[8]}\n";
-            Console.Write(arg);
-        }
-
-        static void TakeUserInput(char UserPiece)
-        {
-            int arg;
-            do
-            {
-                Console.Clear();
-                OutputBoard(CurrentBoard);
-                Console.Write($"Please enter where you wish to put your {UserPiece}?\n> ");
-                int.TryParse(Console.ReadLine(), out arg);
-            } 
-            while (arg < 1 || arg > 9);
-            CurrentBoard[arg - 1] = UserPiece;
-        }
-
-        static char CheckVictory(List<char> board)
-        {
-            // Rows
-            for (int i = 0; i < 7; i+=3)
-            {
-                Debug.WriteLine($"ROW Checking {i}");
-                if (board[i] == board[i + 1] && board[i + 1] == board[i + 2] && board[i+1] != ' ') 
-                {
-                    Debug.WriteLine($"Has found {i} {i + 1} {i + 2} to be equal");
-                    if (board[i] == 'x') return 'x';
-                    else if (board[i] == 'o') return 'o';
-                }
-            }
-
-            // Columns
-            for (int i = 0; i < 3; i ++)
-            {
-                Debug.WriteLine($"COLUMN Checking {i}");
-                if (board[i] == board[i + 3] && board[i + 3] == board[i + 6] && board[i + 3] != ' ')
-                {
-                    Debug.WriteLine($"Has found {i} {i + 3} {i + 6} to be equal");
-                    if (board[i] == 'x') return 'x';
-                    else if (board[i] == 'o') return 'o';
-                }
-            }
-
-            // Left to right diagonal
-            Debug.WriteLine($"Checking LTR DIAGONAL");
-            if (board[0] == board[4] && board[4] == board[8] && board[4] != ' ')
-            {
-                Debug.WriteLine($"Has found {0} {4} {8} to be equal");
-                if (board[0] == 'x') return 'x';
-                else if (board[0] == 'o') return 'o';
-            }
-
-            // Right to left diagonal
-            Debug.WriteLine($"Checking LTR DIAGONAL");
-            if (board[2] == board[4] && board[4] == board[6] && board[2] != ' ')
-            {
-                Debug.WriteLine($"Has found {2} {4} {6} to be equal");
-                if (board[0] == 'x') return 'x';
-                else if (board[0] == 'o') return 'o';
-            }
-
-            return ' ';
-
         }
 
     }

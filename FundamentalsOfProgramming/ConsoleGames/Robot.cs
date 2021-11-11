@@ -17,6 +17,41 @@ namespace ConsoleGames
             HumanPiece = (robotPiece == 'x') ? 'o' : 'x';
         }
 
+        /*public int minimax(int depth, int alpha, int beta, out List<char> board)
+        {
+
+        }*/
+
+
+        /*public float minimax_(List<char> board, bool isTurn)
+        {
+            var pseudoBoard = new List<char>(board);
+
+            if (CheckVictory(pseudoBoard) == 'x') return 10f;
+            else if (CheckVictory(pseudoBoard) == 'o') return -10f;
+            else if (IsFull(pseudoBoard)) return 0f;
+
+            List<float> scores = new List<float>();
+
+            for (int i = 0; i < 9; i++)
+            {
+                if (pseudoBoard[i] == -1)
+                {
+                    pseudoBoard[i] = isTurn ? 'o' : 'x';
+                    float score = minimax_(pseudoBoard, !isTurn);
+                    pseudoBoard[i] = -1f;
+                    scores.Add(score);
+                }
+            }
+
+            if (isTurn)
+                return scores.Max();
+
+            return scores.Min();
+
+        }
+
+
         public int minimax(List<char> board, char userPiece = 'o')
         {
             if (CheckVictory(board) == userPiece) return (userPiece == RobotPiece) ? 1 : -1;
@@ -40,7 +75,7 @@ namespace ConsoleGames
             if (move == -1) return 0;
 
             return score;
-        }
+        }*/
 
         static char CheckVictory(List<char> board)
         {
@@ -78,7 +113,7 @@ namespace ConsoleGames
             }
 
             // Right to left diagonal
-            Debug.WriteLine($"Checking LTR DIAGONAL");
+            Debug.WriteLine($"Checking RTL DIAGONAL");
             if (board[2] == board[4] && board[4] == board[6] && board[2] != ' ')
             {
                 Debug.WriteLine($"Has found {2} {4} {6} to be equal");
@@ -86,42 +121,19 @@ namespace ConsoleGames
                 else if (board[0] == 'o') return 'o';
             }
 
+
             return ' ';
 
         }
 
-        /*public bool Backtrack(out int gridPosition, int currentCheck = 0)
+        bool IsFull(List<char> board)
         {
-            if (CheckVictory(PlaceholderBoard) == HumanPiece) {
-                gridPosition = currentCheck;
-                return false;
-            }
-
-            else if (CheckVictory(PlaceholderBoard) == RobotPiece)
+            foreach (char c in board)
             {
-                gridPosition = currentCheck;
-                return true;
+                if (c != 'x' && c != 'o') return false;
             }
-
-            if (PlaceholderBoard.SequenceEqual(new List<char> { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' })) { 
-                gridPosition = 8;
-                return true;
-            }
-
-            for (int i = 0; i < 9; i++)
-            {
-                if (PlaceholderBoard[i] == ' ') { 
-                    PlaceholderBoard[i] = RobotPiece;
-                    if (Backtrack(out gridPosition, i)) return true;
-                }
-            }
-
-            gridPosition = currentCheck;
-            return false;
-
-        }*/
-
-
+            return true;
+        }
 
     }
 }
