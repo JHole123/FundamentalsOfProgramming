@@ -11,16 +11,46 @@ namespace ConsoleGames
 
         static void Main()
         {
-            NewTurn();
+            NewGame();
         }
 
-        static void NewTurn()
+        static void NewGame()
+        {
+            string userInput;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Do you wish to play against another 'human' or a 'robot'?");
+                userInput = Console.ReadLine().ToLower().Trim();
+            } while (!(userInput == "human" || userInput == "robot"));
+            switch (userInput)
+            {
+                case "human":
+                    HumanTurn();
+                    break;
+                case "robot":
+                    RobotTurn();
+                    break;
+            }
+        }
+
+        static void RobotTurn()
+        {
+            TakeUserInput('x');
+            if (CheckVictory(CurrentBoard) == 'x') VictoryEvent('x');
+            ai.minimax(CurrentBoard);
+            CurrentBoard[ai.move - 1] = 'o';
+            if (CheckVictory(CurrentBoard) == 'o') VictoryEvent('o');
+            RobotTurn();
+        }
+
+        static void HumanTurn()
         {
             TakeUserInput('x');
             if (CheckVictory(CurrentBoard) == 'x') VictoryEvent('x');
             TakeUserInput('o');
             if (CheckVictory(CurrentBoard) == 'o') VictoryEvent('o');
-            NewTurn();
+            HumanTurn();
         }
 
         static void VictoryEvent(char winner)
@@ -30,7 +60,7 @@ namespace ConsoleGames
             Console.Read();
             CurrentBoard.Clear();
             CurrentBoard = new List<char>(new char[] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' });
-            NewTurn();
+            NewGame();
         }
 
         static void OutputBoard(List<char> board)
