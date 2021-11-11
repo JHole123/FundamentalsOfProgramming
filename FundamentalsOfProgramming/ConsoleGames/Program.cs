@@ -24,14 +24,14 @@ namespace ConsoleGames
 
         static void RobotTurn()
         {
-            input.TakeUserInput(ref CurrentBoard, 'x');
+            input.TakeUserInput(CurrentBoard, 'x');
             if (CurrentBoard.Winner == 'x') VictoryEvent('x');
             RobotTurn();
         }
 
         static void HumanTurn(char userPiece = 'x')
         {
-            input.TakeUserInput(ref CurrentBoard, 'x');
+            input.TakeUserInput(CurrentBoard, userPiece);
             if (CurrentBoard.Winner == userPiece) VictoryEvent(userPiece);
             HumanTurn(userPiece == 'x'? 'o':'x');
         }
