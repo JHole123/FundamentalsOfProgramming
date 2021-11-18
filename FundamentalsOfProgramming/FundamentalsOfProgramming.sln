@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleGames", "ConsoleGames\ConsoleGames.csproj", "{DE6C2658-39C0-49B6-9564-525D643E0651}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleGames", "ConsoleGames\ConsoleGames.csproj", "{DE6C2658-39C0-49B6-9564-525D643E0651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipher", "CaesarCipher\CaesarCipher.csproj", "{D9EC91BB-E020-4425-8292-990A4711C84F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DE6C2658-39C0-49B6-9564-525D643E0651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE6C2658-39C0-49B6-9564-525D643E0651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE6C2658-39C0-49B6-9564-525D643E0651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EC91BB-E020-4425-8292-990A4711C84F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EC91BB-E020-4425-8292-990A4711C84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EC91BB-E020-4425-8292-990A4711C84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EC91BB-E020-4425-8292-990A4711C84F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

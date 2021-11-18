@@ -1,0 +1,13 @@
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\bin\Debug\netcoreapp3.1\CaesarCipher.exe
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\bin\Debug\netcoreapp3.1\CaesarCipher.deps.json
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\bin\Debug\netcoreapp3.1\CaesarCipher.runtimeconfig.json
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\bin\Debug\netcoreapp3.1\CaesarCipher.runtimeconfig.dev.json
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\bin\Debug\netcoreapp3.1\CaesarCipher.dll
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\bin\Debug\netcoreapp3.1\CaesarCipher.pdb
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.csprojAssemblyReference.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.AssemblyInfoInputs.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.AssemblyInfo.cs
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.csproj.CoreCompileInputs.cache
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.dll
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.pdb
+M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\obj\Debug\netcoreapp3.1\CaesarCipher.genruntimeconfig.cache

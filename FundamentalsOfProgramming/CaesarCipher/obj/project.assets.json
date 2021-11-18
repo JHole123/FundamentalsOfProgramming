@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "M:\\Pogramming\\FundamentalsOfProgramming\\FundamentalsOfProgramming\\ConsoleGames\\ConsoleGames.csproj",
-      "projectName": "ConsoleGames",
-      "projectPath": "M:\\Pogramming\\FundamentalsOfProgramming\\FundamentalsOfProgramming\\ConsoleGames\\ConsoleGames.csproj",
+      "projectUniqueName": "M:\\Pogramming\\FundamentalsOfProgramming\\FundamentalsOfProgramming\\CaesarCipher\\CaesarCipher.csproj",
+      "projectName": "CaesarCipher",
+      "projectPath": "M:\\Pogramming\\FundamentalsOfProgramming\\FundamentalsOfProgramming\\CaesarCipher\\CaesarCipher.csproj",
       "packagesPath": "C:\\Users\\2016206\\.nuget\\packages\\",
-      "outputPath": "M:\\Pogramming\\FundamentalsOfProgramming\\FundamentalsOfProgramming\\ConsoleGames\\obj\\",
+      "outputPath": "M:\\Pogramming\\FundamentalsOfProgramming\\FundamentalsOfProgramming\\CaesarCipher\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\2016206\\AppData\\Roaming\\NuGet\\NuGet.Config",
