@@ -8,12 +8,14 @@ namespace CaesarCipher
     class Program
     {
         static List<char> alphabet = new List<char>("abcdefghijklmnopqrstuvwxyz".ToCharArray());
-        static string dir = @"M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\commonWords.txt";
+        static Language lang = Language.English;
+        static List<string> ValidLanguages = new List<string>(new string[] { "e", "f" });
+        static Dictionary<Language, string> CommonWords = new Dictionary<Language, string>();
         static void Main()
         {
             string cryptChoice = TakeInput<string>("Do you want to encrypt or decrypt? (e/d)", x => x == "e" || x == "d");
             int key = 0;
-            if (cryptChoice == "e") /*key = TakeInput<int>("What is your key?", x => x == x) - 1;*/ key = int.Parse(Console.ReadLine());
+            if (cryptChoice == "e") key = TakeInput<int>("What is your key?", x => x == x); 
             string userDir = TakeInput<string>("What is your file directory?", x => x == x);
             if (cryptChoice == "e")
             {
@@ -23,23 +25,20 @@ namespace CaesarCipher
             }
             if (cryptChoice == "d")
             {
+                SetLang(TakeInput<string>("What is the intended language?", x => x.Length == 1 && ValidLanguages.Contains(x)));
                 string plainText = BruteForce(File.ReadAllText(userDir));
                 Console.WriteLine(plainText);
                 File.WriteAllText(GetFileDirectory(userDir, cryptChoice), plainText);
-            }
+            } 
+            Console.WriteLine("Press anything to run again");
+            Console.Read();
+            Main();
         }
 
-        static string GetFileDirectory(string dir, string type)
+        static string GetFileDirectory(string _dir, string type)
         {
             string suffix = (type == "e") ? "Encrypted" : "Decrypted";
-            return dir.Replace(".txt", $"{suffix}.txt");
-
-            /*string ParentDirectory = Path.Combine(dir, "..");
-            string _OrphanDirectory = dir.Split("\\")[dir.Split("\\").Length - 1];
-            string ThornToBePruned = _OrphanDirectory.Substring(_OrphanDirectory.Length - 4, 4);
-            string OrphanDirectory = _OrphanDirectory.Replace(ThornToBePruned, "");
-            string Suffix = (type == "e") ? "Encrypted" : "Decrypted";
-            return $"{ParentDirectory}\\{OrphanDirectory}{Suffix}.txt";*/
+            return _dir.Replace(".txt", $"{suffix}.txt");
         }
 
         static string Encrypt(string @string, int key)
@@ -91,7 +90,7 @@ namespace CaesarCipher
 
         static bool IsEnglish(string[] @string)
         {
-            List<string> words = new List<string>(File.ReadAllLines(dir));
+            List<string> words = new List<string>(File.ReadAllLines(CommonWords[lang]));
             int englishWords = 0;
             foreach (string s in @string)
             {
@@ -107,12 +106,32 @@ namespace CaesarCipher
             do
             {
                 Console.Clear();
-                Console.Write($"{question}\n> ");
-                string arg = Console.ReadLine().ToLower().Trim();
-                userInput = Unsafe.As<string, T>(ref arg);
+                Console.Write($"{question}\n");
+                userInput = (T)Convert.ChangeType(Console.ReadLine(), typeof(T));
             } while (!condition(userInput));
             return userInput;
         }
 
+        static void SetupDictionary()
+        {
+            CommonWords.Add(Language.English, @"M:\Pogramming\FundamentalsOfProgramming\FundamentalsOfProgramming\CaesarCipher\englishCommonWords.txt");
+
+        }
+
+        static void SetLang(string _lang)
+        {
+            switch (_lang)
+            {
+                case "e": lang = Language.English; break;
+                case "f": lang = Language.French; break;
+            }
+        }
+
+    }
+
+    enum Language
+    {
+        English,
+        French
     }
 }
